@@ -19,10 +19,10 @@ const EarnedAmount = () => {
             console.error(error.message)
         }
     }
-    const interval = setInterval(() => {
-        stakingContract && fetchEarning()
-    }, 2000)
-    return ()=>clearInterval(interval)
+    // const interval = setInterval(() => {
+    //     stakingContract && fetchEarning()
+    // }, 2000)
+    // return ()=>clearInterval(interval)
    },[stakingContract,seletedAccount])
   return (
     <div>EarnedAmount:{rewardVal}</div>

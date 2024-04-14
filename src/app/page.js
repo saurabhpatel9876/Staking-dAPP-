@@ -1,4 +1,5 @@
 import Wallet from "@/components/Wallet";
+import ClaimReward from "@/components/claimReard/ClaimReward";
 import Details from "@/components/details/Details";
 import Navigation from "@/components/navigation/Navigation";
 import { StakingProvider } from "@/context/StakingContext";
@@ -10,6 +11,7 @@ export default function Home() {
    <Wallet>
     <Navigation/>
    <Details/>
+   <ClaimReward/>
    </Wallet>
    </>
   );
