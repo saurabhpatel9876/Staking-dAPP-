@@ -1,7 +1,9 @@
 'use client'
 
 import Web3Context from '@/context/Web3Context'
+import { ethers } from 'ethers'
 import React, { useContext, useRef } from 'react'
+
 
 const TokenApproval = () => {
     const {stakingContract,stakeTokenContract}=useContext(Web3Context)
@@ -19,6 +21,7 @@ const TokenApproval = () => {
            const amountToSend = ethers.parseUnits(amount,18).toString();
            try {
             const transaction = await stakeTokenContract.approve(stakingContract.target,amountToSend)
+            await transaction.wait()
 
             approvedTokenRef.current.value = "";
 
@@ -35,10 +38,12 @@ const TokenApproval = () => {
     }
   return (
     <div>
-    <form onSubmit={approveToken} className="token-amount-form">
-       <label className="token-input-label">Token Approval:</label>
+    <form onSubmit={approveToken} >
+       <label >Token Approval:</label>
        <input type="text" ref={approvedTokenRef} />
-       <Button onClick={approveToken} type="submit" label="Token Approval" />
+      <button  onClick={approveToken} type="submit">
+        aprovak token
+      </button>
      </form>
 </div>
   )

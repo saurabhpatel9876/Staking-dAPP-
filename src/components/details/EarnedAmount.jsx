@@ -14,15 +14,19 @@ const EarnedAmount = () => {
             const rewardValueWei = await stakingContract.earned(seletedAccount)
             const rewardValueEth = ethers.formatUnits(rewardValueWei,18).toString()
             const roundedRewarded = parseFloat(rewardValueEth).toFixed(2)
+            console.log("earnedddd wala:",roundedRewarded)
             setRewardVal(roundedRewarded)
         } catch (error) {
-            console.error(error.message)
+            // console.error(error.message)
+            console.log("err",error)
         }
     }
-    // const interval = setInterval(() => {
-    //     stakingContract && fetchEarning()
-    // }, 2000)
-    // return ()=>clearInterval(interval)
+    // const interval = setInterval(()=>{
+    //     stakingContract && fetchEarning();
+    //   },20000)
+    //   return ()=> clearInterval(interval)
+
+    stakingContract && fetchEarning();
    },[stakingContract,seletedAccount])
   return (
     <div>EarnedAmount:{rewardVal}</div>

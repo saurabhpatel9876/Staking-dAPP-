@@ -8,15 +8,17 @@ const ClaimReward = () => {
     const fetchClaimReward=async()=>{
         try {
             const trasaction = await stakingContract.getReward();
+            // await trasaction.wait()
+            console.log("transactionnnn:",trasaction)
 
         } catch (error) {
-            console.error("Claim Reward Failed",error.message)
+            console.log("Claim Reward Failed",error)
         }
     }
   return (
     <>
     <div>
-        <button onClick={fetchClaimReward}>claim Reward</button>
+        <button type='button' onClick={fetchClaimReward}>claim Reward</button>
     </div>
     </>
   )
