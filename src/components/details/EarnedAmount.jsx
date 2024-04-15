@@ -4,18 +4,18 @@ import { ethers } from 'ethers'
 import React, { useContext, useEffect, useState } from 'react'
 
 const EarnedAmount = () => {
-    const {stakingContract,seletedAccount}=useContext(Web3Context)
+    const {stakingContract,selectedAccount}=useContext(Web3Context)
     const[rewardVal,setRewardVal]=useState("0")
 
    useEffect(()=>{
     const fetchEarning=async()=>{
         
         try {
-            const rewardValueWei = await stakingContract.earned(seletedAccount)
-            const rewardValueEth = ethers.formatUnits(rewardValueWei,18).toString()
-            const roundedRewarded = parseFloat(rewardValueEth).toFixed(2)
-            console.log("earnedddd wala:",roundedRewarded)
-            setRewardVal(roundedRewarded)
+            const rewardValueWei = await stakingContract.earned(selectedAccount);
+           const rewardValueEth = ethers.formatUnits(rewardValueWei,18).toString();
+           const roundedReward = parseFloat(rewardValueEth).toFixed(2)
+            console.log("earnedddd wala:",roundedReward)
+            setRewardVal(roundedReward)
         } catch (error) {
             // console.error(error.message)
             console.log("err",error)
@@ -27,7 +27,7 @@ const EarnedAmount = () => {
     //   return ()=> clearInterval(interval)
 
     stakingContract && fetchEarning();
-   },[stakingContract,seletedAccount])
+   },[stakingContract,selectedAccount])
   return (
     <div>EarnedAmount:{rewardVal}</div>
   )
