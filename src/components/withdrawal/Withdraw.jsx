@@ -3,6 +3,7 @@ import StakingContext from '@/context/StakingContext'
 import Web3Context from '@/context/Web3Context'
 import { ethers } from 'ethers'
 import React, { useContext, useRef } from 'react'
+import { Button } from '../ui/button'
 
 const Withdraw = () => {
     const{stakingContract}=useContext(Web3Context)
@@ -31,11 +32,11 @@ const Withdraw = () => {
     }
   return (
     <>
-    <form className="withdraw-form" onSubmit={withdrawStakeToken}>
+    <form className="m-2" onSubmit={withdrawStakeToken} >
             <label>Withdraw Token:</label>
-            <input type="text" ref={withdrawStakeAmountRef} />
-            <button onClick={withdrawStakeToken}
-            type="submit">withdrwa token</button>
+            <input className=' text-black p-1' type="text" ref={withdrawStakeAmountRef} />
+            <Button onClick={withdrawStakeToken}
+            type="submit">withdrwal token</Button>
       </form>
     </>
   )

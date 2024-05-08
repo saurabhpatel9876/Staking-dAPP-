@@ -1,6 +1,7 @@
 'use client'
 import Web3Context from '@/context/Web3Context'
 import React, { useContext } from 'react'
+import { Button } from '../ui/button'
 
 
 
@@ -31,9 +32,9 @@ const ClaimReward = () => {
  }
   return (
     <>
-    <button  type="button" onClick={claimReward}>
+    <Button  type="button" onClick={claimReward}>
         claim reward
-    </button>
+    </Button>
     </>
   )
 }

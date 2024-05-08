@@ -3,6 +3,7 @@
 import Web3Context from '@/context/Web3Context'
 import { ethers } from 'ethers'
 import React, { useContext, useRef } from 'react'
+import { Button } from '../ui/button'
 
 
 const TokenApproval = () => {
@@ -38,12 +39,12 @@ const TokenApproval = () => {
     }
   return (
     <div>
-    <form onSubmit={approveToken} >
+    <form onSubmit={approveToken} className='m-2 p-1'>
        <label >Token Approval:</label>
-       <input type="text" ref={approvedTokenRef} />
-      <button  onClick={approveToken} type="submit">
-        aprovak token
-      </button>
+       <input className=' text-black p-1' type="text" ref={approvedTokenRef} />
+      <Button  onClick={approveToken} type="submit">
+        aproval token
+      </Button>
      </form>
 </div>
   )

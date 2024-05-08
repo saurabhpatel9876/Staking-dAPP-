@@ -1,10 +1,12 @@
 "use client"
 import React from 'react'
 import { useState,useEffect } from 'react'
-import { ConnectWallet } from '@/utils/connectWallet'
+import { ConnectWallet } from '@/utils/ConnectWallet'
 import HandleAccountChange from '@/utils/HandleAccountChange'
 import HandleChainChange from '@/utils/HandleChainChange'
 import Web3Context from '@/context/Web3Context'
+import { Button } from "@/components/ui/button"
+
 const Wallet = ({children}) => {
     const [state,setState]=useState({
         provider:null,
@@ -44,7 +46,11 @@ const Wallet = ({children}) => {
   <>
     <Web3Context.Provider value={state}>{children}</Web3Context.Provider>
    {/* {isLoading && <p>Loading...</p>} */}
-  <button onClick={handleWallet}>wallet connect</button>
+  {/* <button onClick={handleWallet}>wallet connect</button> */}
+  <Button className="text-black" variant="outline" onClick={handleWallet}>
+ wallet connect
+   </Button>
+
   </>
   )
 }

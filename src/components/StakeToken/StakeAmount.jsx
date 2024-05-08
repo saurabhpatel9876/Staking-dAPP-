@@ -4,6 +4,7 @@ import StakingContext from '@/context/StakingContext'
 import Web3Context from '@/context/Web3Context'
 import { ethers } from 'ethers'
 import React, { useContext, useRef } from 'react'
+import { Button } from '../ui/button'
 
 const StakeAmount = () => {
     const {stakingContract}=useContext(Web3Context)
@@ -40,12 +41,15 @@ const StakeAmount = () => {
     }
   return (
    <>
-   <form onSubmit={stakeToken} className="stake-amount-form">
-        <label className="stake-input-label">Enter Staked Amount:</label>
-        <input type="text" ref={stakeAmountRef} />
-       <button onClick={stakeToken} type="submit">
+   <form onSubmit={stakeToken} className="m-2">
+        <label className="">Enter Staked Amount:</label>
+        <input className=' text-black p-1' type="text" ref={stakeAmountRef} />
+       {/* <button onClick={stakeToken} type="submit">
         stake token
-       </button>
+       </button> */}
+       <Button onClick={stakeToken} type="submit">
+        stake Token
+       </Button>
       </form>
    </>
   )
